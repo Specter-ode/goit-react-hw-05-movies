@@ -1,16 +1,24 @@
-export const App = () => {
+import { Routes, Route } from 'react-router-dom';
+import Header from './Header/Header';
+import Container from './/Container/Container';
+import HomePage from '../pages/HomePage/HomePage';
+import MoviesPage from '../pages/MoviePage/MoviesPage';
+import MovieDetailsPage from '../pages/MovieDetailsPage/MovieDetailsPage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Container>
   );
 };
+
+export default App;
