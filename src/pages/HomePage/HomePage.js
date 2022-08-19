@@ -1,10 +1,10 @@
-import MovieList from '../../components/MovieList/MovieList';
+import TrendingMovies from '../../components/TrendingMovies/TrendingMovies';
 
 const HomePage = () => {
   return (
     <main>
       <h2>Trending today</h2>
-      <MovieList />
+      <TrendingMovies />
     </main>
   );
 };

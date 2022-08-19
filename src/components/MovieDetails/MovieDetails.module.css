@@ -1,0 +1,18 @@
+.item {
+  display: flex;
+  margin: 20px 0;
+}
+
+.description {
+  margin-left: 30px;
+}
+
+.img {
+  display: block;
+  width: 232px;
+  height: 348px;
+  box-shadow: 0 2px 6px rgba(7, 0, 29, 0.5), 3px 6px 9px rgba(0, 0, 0, 0.8);
+}
+.title {
+  margin: 0 0 20px 0;
+}

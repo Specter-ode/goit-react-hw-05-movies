@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getTrendingMovies } from '../../services/movieApi';
-import s from './MovieList.module.css';
+import MoviesList from 'components/MoviesList/MoviesList';
+import Spinner from '../Spinner/Spinner';
 
-const MovieList = () => {
+const TrendingMovies = () => {
   const [state, setState] = useState({
     movies: [],
     loading: false,
@@ -38,26 +38,14 @@ const MovieList = () => {
     fetchTrendingMovies();
   }, []);
   const { movies, loading, error } = state;
-  const elements = movies.map(({ id, title, poster_path }) => (
-    <li className={s.items} key={id}>
-      <Link to={`/movies/${id}`}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          alt={title}
-          class={s.items__img}
-          width="200"
-        />
-        <p className={s.title}>{title}</p>
-      </Link>
-    </li>
-  ));
+
   return (
     <>
-      {loading && <p>...loading</p>}
+      {loading && <Spinner />}
       {error && <p>Movies not found, try again</p>}
-      <ul className={s.list}>{elements}</ul>
+      <MoviesList movies={movies} />
     </>
   );
 };
 
-export default MovieList;
+export default TrendingMovies;

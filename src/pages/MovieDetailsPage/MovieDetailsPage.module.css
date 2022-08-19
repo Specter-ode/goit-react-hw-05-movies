@@ -1,0 +1,47 @@
+.btn {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  padding: 6px 0;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: rgb(17, 1, 70);
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(17, 1, 70, 0.5), 3px 6px 9px rgba(17, 1, 70, 0.3);
+  border: 3px solid rgb(17, 1, 70);
+}
+
+.btn:hover {
+  background-color: rgb(17, 1, 70);
+  color: #ffffff;
+  border: 3px solid rgb(180, 159, 248);
+}
+.outlet {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: flex;
+}
+.link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.link {
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  padding: 6px 0;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: rgb(17, 1, 70);
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(17, 1, 70, 0.5), 3px 6px 9px rgba(17, 1, 70, 0.3);
+  border: 3px solid rgb(17, 1, 70);
+}
+
+.activeLink {
+  composes: link;
+  background-color: rgb(17, 1, 70);
+  color: #ffffff;
+  border: 3px solid rgb(180, 159, 248);
+}

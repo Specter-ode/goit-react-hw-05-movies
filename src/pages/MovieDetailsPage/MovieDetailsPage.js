@@ -2,15 +2,21 @@ import s from './MovieDetailsPage.module.css';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import { getMovieById } from '../../services/movieApi';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
+import Spinner from '../../components/Spinner/Spinner';
+const getLinkClassName = props => {
+  const { isActive } = props;
+  return isActive ? s.activeLink : s.link;
+};
 const MovieDetailsPage = () => {
   const [state, setState] = useState({
     movie: {},
     loading: false,
     error: null,
   });
-  const params = useParams();
+  const { movieId } = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchMovieById = async () => {
       setState(prevState => ({
@@ -18,11 +24,11 @@ const MovieDetailsPage = () => {
         loading: true,
       }));
       try {
-        const data = await getMovieById();
+        const data = await getMovieById(movieId);
         console.log('data: ', data);
         setState(prevState => ({
           ...prevState,
-          movie: 'test',
+          movie: data,
         }));
       } catch (error) {
         setState(prevState => ({
@@ -37,15 +43,32 @@ const MovieDetailsPage = () => {
       }
     };
     fetchMovieById();
-  }, []);
+  }, [movieId]);
 
   const { movie, loading, error } = state;
   const isMovie = Object.keys(movie).length > 0;
+  const goBack = () => navigate(-1);
   return (
     <main>
-      {loading && <p>...loading</p>}
+      {loading && <Spinner />}
       {error && <p>Movies not found, try again</p>}
-      {isMovie && <MovieDetails />}
+      {isMovie && (
+        <div>
+          <button className={s.btn} type="button" onClick={goBack}>
+            Go Back
+          </button>
+          <MovieDetails {...movie} />
+          <ul className={s.outlet}>
+            <NavLink to={`/movies/${movieId}/cast`} className={getLinkClassName}>
+              Cast
+            </NavLink>
+            <NavLink to={`/movies/${movieId}/reviews`} className={getLinkClassName}>
+              Reviews
+            </NavLink>
+          </ul>
+        </div>
+      )}
+      <Outlet />
     </main>
   );
 };
