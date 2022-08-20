@@ -14,11 +14,11 @@ const MovieDetails = ({ id, title, poster_path, release_date, vote_average, over
         <h2 className={s.title}>
           {title} ({releaseYear})
         </h2>
-        <p>User score: {score ? score : 'Sorry, information not avalaible'}%</p>
-        <h3>Overview</h3>
-        <p>{overview ? overview : 'Sorry, information not avalaible'}</p>
-        <h3>Genres</h3>
-        <p>{genresList.length > 0 ? genresList : 'Sorry, information not avalaible'}</p>
+        <p className={s.text}>User score: {score ? score : 'Sorry, information not avalaible'}%</p>
+        <h3 className={s.title}>Overview</h3>
+        <p className={s.text}>{overview ? overview : 'Sorry, information not avalaible'}</p>
+        <h3 className={s.title}>Genres</h3>
+        <p className={s.text}>{genresList.length > 0 ? genresList : 'Sorry, information not avalaible'}</p>
       </div>
     </div>
   );
