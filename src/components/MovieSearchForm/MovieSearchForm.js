@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import s from './MovieSearchForm.module.css';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 const MovieSearchForm = ({ catchSubmitInfo }) => {
   const [query, setQuery] = useState('');
 
@@ -23,4 +24,7 @@ const MovieSearchForm = ({ catchSubmitInfo }) => {
   );
 };
 
+MovieSearchForm.propTypes = {
+  catchSubmitInfo: PropTypes.func.isRequired,
+};
 export default MovieSearchForm;

@@ -1,9 +1,11 @@
 import s from './MovieDetailsPage.module.css';
+import PropTypes from 'prop-types';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import { getMovieById } from '../../services/movieApi';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
 import Spinner from '../../components/Spinner/Spinner';
+
 const getLinkClassName = props => {
   const { isActive } = props;
   return isActive ? s.activeLink : s.link;
@@ -25,7 +27,6 @@ const MovieDetailsPage = () => {
       }));
       try {
         const data = await getMovieById(movieId);
-        console.log('data: ', data);
         setState(prevState => ({
           ...prevState,
           movie: data,
@@ -71,6 +72,10 @@ const MovieDetailsPage = () => {
       <Outlet />
     </main>
   );
+};
+
+MovieDetailsPage.propTypes = {
+  isActive: PropTypes.bool,
 };
 
 export default MovieDetailsPage;

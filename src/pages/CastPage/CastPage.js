@@ -31,7 +31,7 @@ const CastPage = () => {
       : (profile_path = 'https://upload.wikimedia.org/wikipedia/commons/4/47/GarvaGriha_in_KaryaBinayak.jpg');
     return (
       <li className={s.items} key={id}>
-        <img className={s.img} src={profile_path} alt={name} width="97" height="150" />
+        <img className={s.img} src={profile_path} alt={name} />
         <p className={s.name}>{name}</p>
       </li>
     );

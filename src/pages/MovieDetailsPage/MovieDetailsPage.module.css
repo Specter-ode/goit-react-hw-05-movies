@@ -1,6 +1,6 @@
 .btn {
   display: inline-block;
-  width: 100px;
+  width: 106px;
   text-align: center;
   padding: 6px 0;
   font-weight: 700;
@@ -8,13 +8,14 @@
   color: rgb(17, 1, 70);
   font-size: 16px;
   box-shadow: 0 2px 6px rgba(17, 1, 70, 0.5), 3px 6px 9px rgba(17, 1, 70, 0.3);
-  border: 3px solid rgb(17, 1, 70);
+  border-bottom: 4px solid rgb(17, 1, 70);
+  border-radius: 6px;
 }
 
 .btn:hover {
   background-color: rgb(17, 1, 70);
   color: #ffffff;
-  border: 3px solid rgb(180, 159, 248);
+  border-bottom: 4px solid rgb(180, 159, 248);
 }
 .outlet {
   list-style: none;
@@ -28,20 +29,25 @@
 
 .link {
   display: inline-block;
+  text-decoration: none;
   text-align: center;
-  width: 100px;
+  width: 106px;
   padding: 6px 0;
-  font-weight: 700;
+  font-weight: 500;
   background-color: #ffffff;
   color: rgb(17, 1, 70);
-  font-size: 16px;
-  box-shadow: 0 2px 6px rgba(17, 1, 70, 0.5), 3px 6px 9px rgba(17, 1, 70, 0.3);
-  border: 3px solid rgb(17, 1, 70);
+  font-size: 20px;
+  border-bottom: 4px solid rgb(17, 1, 70);
+  border-radius: 4px;
 }
-
+.link:hover {
+  background-color: rgb(17, 1, 70);
+  color: #ffffff;
+  border-bottom: 4px solid rgb(180, 159, 248);
+}
 .activeLink {
   composes: link;
   background-color: rgb(17, 1, 70);
   color: #ffffff;
-  border: 3px solid rgb(180, 159, 248);
+  border-bottom: 3px solid rgb(180, 159, 248);
 }

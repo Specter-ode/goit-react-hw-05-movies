@@ -12,7 +12,6 @@ const MovieSearchBar = () => {
   // const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
-  console.log('query: ', query);
 
   useEffect(() => {
     const fetchMoviesBySearch = async () => {

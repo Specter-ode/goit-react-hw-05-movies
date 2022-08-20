@@ -1,4 +1,5 @@
 import s from './MovieDetails.module.css';
+import PropTypes from 'prop-types';
 const MovieDetails = ({ id, title, poster_path, release_date, vote_average, overview, genres }) => {
   const score = (10 * vote_average).toFixed();
   const releaseYear = new Date(release_date).getFullYear();
@@ -23,4 +24,13 @@ const MovieDetails = ({ id, title, poster_path, release_date, vote_average, over
   );
 };
 
+MovieDetails.propTypes = {
+  genres: PropTypes.arrayOf(PropTypes.object.isRequired),
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
+};
 export default MovieDetails;

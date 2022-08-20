@@ -18,7 +18,6 @@ const TrendingMovies = () => {
       }));
       try {
         const data = await getTrendingMovies();
-        console.log('data: ', data);
         setState(prevState => ({
           ...prevState,
           movies: [...data.results],
