@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from '../../services/movieApi';
@@ -15,7 +16,6 @@ const CastPage = () => {
       setLoading(true);
       try {
         const data = await getMovieCast(movieId);
-        console.log('data: ', data);
         setActors(data.cast);
       } catch (error) {
         setError(error.message);
@@ -44,5 +44,9 @@ const CastPage = () => {
     </>
   );
 };
-
+CastPage.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  profile_path: PropTypes.string,
+};
 export default CastPage;

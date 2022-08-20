@@ -1,4 +1,5 @@
 import s from './ReviewsPage.module.css';
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../services/movieApi';
@@ -26,7 +27,6 @@ const ReviewsPage = () => {
     };
     fetchMovieById();
   }, [movieId]);
-  console.log('reviews: ', reviews);
   const elements = reviews.map(({ id, author, content }) => {
     return (
       <li className={s.items} key={id}>
@@ -43,5 +43,9 @@ const ReviewsPage = () => {
     </>
   );
 };
-
+ReviewsPage.propTypes = {
+  id: PropTypes.number,
+  author: PropTypes.string,
+  content: PropTypes.string,
+};
 export default ReviewsPage;
