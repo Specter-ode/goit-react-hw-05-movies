@@ -3,7 +3,6 @@ import s from './MoviesList.module.css';
 import PropTypes from 'prop-types';
 const MovieList = ({ movies }) => {
   const elements = movies.map(({ id, title, poster_path }) => {
-    console.log('title: ', title);
     poster_path
       ? (poster_path = `https://image.tmdb.org/t/p/w500/${poster_path}`)
       : (poster_path = 'https://upload.wikimedia.org/wikipedia/commons/4/47/GarvaGriha_in_KaryaBinayak.jpg');
@@ -21,9 +20,13 @@ const MovieList = ({ movies }) => {
 };
 
 MovieList.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  poster_path: PropTypes.string,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
+    })
+  ),
 };
 
 export default MovieList;

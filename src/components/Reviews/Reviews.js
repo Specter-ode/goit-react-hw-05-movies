@@ -1,9 +1,8 @@
-import s from './ReviewsPage.module.css';
-import PropTypes from 'prop-types';
+import s from './Reviews.module.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../services/movieApi';
-import Spinner from '../../components/Spinner/Spinner';
+import Spinner from '../Spinner/Spinner';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -43,9 +42,5 @@ const ReviewsPage = () => {
     </>
   );
 };
-ReviewsPage.propTypes = {
-  id: PropTypes.number,
-  author: PropTypes.string,
-  content: PropTypes.string,
-};
+
 export default ReviewsPage;

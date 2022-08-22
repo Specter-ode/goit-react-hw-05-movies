@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMoviesBySearch } from '../../services/movieApi';
+import { toast } from 'react-toastify';
 import MovieSearchForm from '../MovieSearchForm/MovieSearchForm';
 import MoviesList from '../MoviesList/MoviesList';
 import Spinner from '../Spinner/Spinner';
@@ -31,6 +32,12 @@ const MovieSearchBar = () => {
   }, [query]);
   const handleFormSubmit = searchValue => {
     // setQuery(searchValue);
+    if (!searchValue) {
+      toast.error(`Search field is empty`, {
+        theme: 'colored',
+      });
+      return;
+    }
     setSearchParams({ query: searchValue });
   };
   return (

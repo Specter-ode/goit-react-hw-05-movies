@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from '../../services/movieApi';
-import Spinner from '../../components/Spinner/Spinner';
-import s from './CastPage.module.css';
+import Spinner from '../Spinner/Spinner';
+import s from './Cast.module.css';
 const CastPage = () => {
   const [actors, setActors] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,10 +42,5 @@ const CastPage = () => {
       {actors.length > 0 ? <ul className={s.list}>{elements}</ul> : <p>We don't have information about cast</p>}
     </>
   );
-};
-CastPage.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  profile_path: PropTypes.string,
 };
 export default CastPage;
